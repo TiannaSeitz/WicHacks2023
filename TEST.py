@@ -19,13 +19,13 @@ if __name__ == "__main__":
                     time.sleep(0.026)
                     if GPIO.input(pin_number):
                         signal = 3
-                        import client_UI
+                        import client_UI_1
                     else:
                         signal = 2
-                        import client_UI
+                        import client_UI_1
                 else:
                     signal = 1
-                    import client_UI
+                    import client_UI_1
                 print(signal)
                 
     except KeyboardInterrupt:

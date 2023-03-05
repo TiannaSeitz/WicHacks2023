@@ -51,7 +51,7 @@ age = "21"
 pronouns = "She/her"
 info = "Hard of hearing"
 
-signal_var = TEST.signal
+signal_var = 2
 
 if signal_var == 1:
     signal_in = "Escort me to my car"
