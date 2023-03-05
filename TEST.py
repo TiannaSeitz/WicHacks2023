@@ -22,10 +22,10 @@ if __name__ == "__main__":
                         import client_UI_1
                     else:
                         signal = 2
-                        import client_UI_1
+                        import client_UI_2
                 else:
                     signal = 1
-                    import client_UI_1
+                    import client_UI_3
                 print(signal)
                 
     except KeyboardInterrupt:
