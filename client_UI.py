@@ -1,34 +1,77 @@
-#This file is the user interface for the bracelet owner
 import tkinter as tk
 from tkinter import *
-import PIL
 from PIL import ImageTk
 from PIL import Image
+import TEST
 
-grey = '#393841'
+gray = '#393841'
 white = '#e8e9ea'
-purple = '#504887'
-pink = 'ad2775'
+light_pink = '#c09da7'
+pink = '#ad2276'
 blue = '#5d8aa6'
 
-window = tk.Tk(className= " TELL personal safety ")
-window.geometry("800x400")
-window['background'] = grey
+def get_name(name):
+    username_label = tk.Label(text = ("Name: " + name), font = ('Century 16'), bg = gray, fg = white)
+    username_label.pack(anchor='w')
+
+def get_age(age):
+    age_label = tk.Label(text = ("Age: " + age), font = ('Century 16'), bg = gray, fg = white)
+    age_label.pack(anchor='w')
+
+def get_pronouns(pronouns):
+    pronouns_label = tk.Label(text = ("Pronouns: " + pronouns), font = ('Century 16'), bg = gray, fg = white)
+    pronouns_label.pack(anchor='w')
+
+def get_info(info):
+    info_label = tk.Label(text = ("Additional info: " +  info), font = ('Century 16'), bg = gray, fg = white)
+    info_label.pack(anchor='w')
+
+def signal_type(signal):
+    frame = Frame(win, highlightbackground = blue, bg = pink, highlightthickness = 4)
+    frame.pack(padx = 20, pady = 20)
+    info_label = tk.Label(frame, text = ("Signal: " +  signal), font = ('Century 20'), bg = light_pink, fg = pink)
+    info_label.pack(anchor='w')
+
+win = tk.Tk(className = " TELL Safety ")
+win.geometry("800x500")
+win['background'] = gray
 
 logo = PhotoImage(file = "images\logo.png")
-window.iconphoto(False, logo)
+win.iconphoto(False, logo)
 
-# logo_open = Image.open('images\logo.png')
-# logo_open = logo_open.resize((100,100))
-# label = tk.Label(image = logo_open)
-# label.image = ImageTk.PhotoImage(logo_open)
-#this is the text on the main window
-
-name = tk.Label(text = "Welcome to TELL", font = ('CordiaUPC 16'), bg = grey, fg = blue)
+name = tk.Label(text = "Welcome to TELL", font = ('CordiaUPC 16'), bg = gray, fg = blue)
 name.pack()
 
-tagline = tk.Label(text = "discrete personal safety communication\n\n", font = ('Century 12'), bg = grey, fg = blue)
+tagline = tk.Label(text = "Empowering you to take control of your safety\n\n", font = ('Century 12'), bg = gray, fg = blue)
 tagline.pack()
 
-#this is what keeps the window running
-window.mainloop()
+
+name = "Apple Seed"
+age = "21"
+pronouns = "She/her"
+info = "Hard of hearing"
+
+signal_var = TEST.signal
+
+if signal_var == 1:
+    signal_in = "Escort me to my car"
+elif signal_var == 2:
+    signal_in = "Call a cab"
+elif signal_var == 3:
+    signal_in = "Call the police"
+
+img_frame = Frame(win, highlightbackground = blue, bg = pink, highlightthickness = 4)
+img_frame.pack(anchor = 'w')
+
+profile_img = ImageTk.PhotoImage(Image.open("images\profile.jpg"))
+profile_label = Label(img_frame, image = profile_img, height=90, width = 90)
+profile_label.pack(anchor = 'w')
+
+
+get_name(name)
+get_age(age)
+get_pronouns(pronouns)
+get_info(info)
+signal_type(signal_in)
+
+win.mainloop()
